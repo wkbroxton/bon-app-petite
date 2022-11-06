@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Bon App-Petite</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+
+
+  <!-- Api key for watson assistant -->
+  <!-- {
+		"apikey": "UPKOhd-MYZmySsYPa6cGMGBi0-F4-P2jgyw3xwVpxxMw",
+		"iam_apikey_description": "Auto-generated for key crn:v1:bluemix:public:conversation:us-south:a/ce8bd6a803cd4d80a6bf92c80dcdbe38:d728c4e1-b687-485d-85dd-3cb6219fecb1:resource-key:343c7466-e8f8-4425-8beb-9618c28c48d0",
+		"iam_apikey_name": "Auto-generated service credentials",
+		"iam_role_crn": "crn:v1:bluemix:public:iam::::serviceRole:Manager",
+		"iam_serviceid_crn": "crn:v1:bluemix:public:iam-identity::a/ce8bd6a803cd4d80a6bf92c80dcdbe38::serviceid:ServiceId-34b4b75d-fea5-4c75-8e31-a6929e726947",
+		"url": "https://api.us-south.assistant.watson.cloud.ibm.com/instances/d728c4e1-b687-485d-85dd-3cb6219fecb1"
+	} -->
+
+
+  <!-- Sidebar/menu -->
+  <nav class="w3-sidebar w3-black w3-collapse w3-top w3-large w3-padding"
+    style="z-index:3;width:300px;font-weight:bold;" id="mySidebar"><br>
+    <a href="javascript:void(0)" onclick="w3_close()" class="w3-button w3-hide-large w3-display-topleft"
+      style="width:100%;font-size:22px">Close Menu</a>
+    <div class="w3-container">
+      <h3 class="w3-padding-64" style="color:white"><b>Fresh Food Co.</b></h3>
+    </div>
+    <div class="w3-bar-block" style="color:white">
+      <a href="#" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Home</a>
+      <a href="#services" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">What We Do</a>
+      <a href="#team" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Meet Team Tech</a>
+      <!-- <a href="#api" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Api</a> -->
+      <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Contact</a>
+    </div>
+  </nav>
+
+  <!-- Top menu on small screens -->
+  <header class="w3-container w3-top w3-hide-large w3-xlarge w3-padding"
+    style="background-image: url('plantBackground.jpg'); color: white">
+    <a href="javascript:void(0)" class="w3-button w3-margin-right" onclick="w3_open()">☰</a>
+    <span>Bon App-Petite</span>
+  </header>
+
+  <!-- Overlay effect when opening sidebar on small screens -->
+  <div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu"
+    id="myOverlay"></div>
+
+  <!-- !PAGE CONTENT! -->
+  <div class="w3-main" style="margin-left:340px;margin-right:40px">
+
+    <!-- Header -->
+    <div class="w3-container" style="margin-top:80px" id="showcase">
+      <h1 class="w3-jumbo"><b>Bon<br />App-Petite</b></h1>
+      <p><b>Browse our website or use our chatbot to look for nearby restaurants</b></p>
+      <hr style="width:50px;border:5px solid #FCEFB4" class="w3-round">
+    </div>
+
+    <!-- Photo grid (modal) -->
+    <div class="w3-row-padding">
+      <div class="w3-half">
+        <img src="carrots.png" style="width:100%" onclick="onClick(this)" alt="Carrots">
+        <img src="lettuce.png" style="width:100%" onclick="onClick(this)" alt="Light, fresh lettuce">
+        <img src="bellpeppers.png" style="width:100%" onclick="onClick(this)" alt="Beautiful Bell Peppers">
+      </div>
+
+      <div class="w3-half">
+        <img src="sushi.png" style="width:100%" onclick="onClick(this)" alt="Wonderful Sushi">
+        <img src="cafe.png" style="width:100%" onclick="onClick(this)" alt="Outdoor Cafe">
+        <img src="sunset.png" style="width:100%" onclick="onClick(this)" alt="Sunset">
+      </div>
+    </div>
+
+    <!-- Modal for full size images on click-->
+    <div id="modal01" class="w3-modal w3-black" style="padding-top:0" onclick="this.style.display='none'">
+      <span class="w3-button w3-black w3-xxlarge w3-display-topright">×</span>
+      <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
+        <img id="img01" class="w3-image">
+        <p id="caption"></p>
+      </div>
+    </div>
+
+    <!-- Services -->
+    <div class="w3-container reveal" id="services" style="margin-top:75px">
+      <h1 class="w3-xxxlarge" style="color:#1F8555"><b>What We Do.</b></h1>
+      <hr style="width:50px;border:5px solid #FCEFB4" class="w3-round">
+      <p>We are a web app that lets you know when restaurants are closing so you can get the best deals on food and help
+        reduce waste!!</p>
+      <p>Meet our team of amazing thoughtfully chosen black coders who have worked hard on our app!</p>
+    </div>
+
+    <!-- Team -->
+    <div class="w3-container reveal" id="team" style="margin-top:75px">
+      <h1 class="w3-xxxlarge" style="color:#1F8555"><b>Meet Team Tech.</b></h1>
+      <hr style="width:50px;border:5px solid #FCEFB4" class="w3-round">
+      <p>The best team in the world!!</p>
+      <p><b>Our team is thoughtfully chosen</b>:</p>
+    </div>
+
+    <!-- The Team -->
+    <div class="reveal">
+      <div class="w3-row-padding w3-grayscale headshot-container">
+        <div class="w3-col m3 w3-margin-bottom">
+          <div class="w3-yellow">
+            <img class="headshot" src="Eriel.png" alt="Eriel" style="width:100%">
+            <div class="w3-container">
+              <h3>Eriel Alexander</h3>
+              <p class="w3-opacity">CEO & Founder</p>
+              <p>Our eye-for-design 6th grader whose fav drink is boba and fav color is a particular shade of yellow</p>
+            </div>
+          </div>
+        </div>
+        <div class="w3-col m3 w3-margin-bottom">
+          <div class="w3-green">
+            <img class="headshot" src="Daphne.png" alt="Daphne" style="width:100%">
+            <div class="w3-container">
+              <h3>Daphne White</h3>
+              <p class="w3-opacity">Page Designer</p>
+              <p>Our energetic 3rd grader whose fav drink is lavender tea and fav color is lime green </p>
+            </div>
+          </div>
+        </div>
+        <div class="w3-col m3 w3-margin-bottom">
+          <div class="w3-light-grey">
+            <img class="headshot" src="Sammie.png" alt="Sammie" style="width:100%">
+            <div class="w3-container">
+              <h3>Samantha Richard</h3>
+              <p class="w3-opacity">Designer</p>
+              <p>Senior classmen and design boss who loves strawberry milk and the color yellow.</p>
+            </div>
+          </div>
+        </div>
+        <div class="w3-col m3 w3-margin-bottom">
+          <div class="w3-purple">
+            <img class="headshot" src="Sophie.png" alt="Sophie" style="width:100%">
+            <div class="w3-container">
+              <h3>Sophie Broxton</h3>
+              <p class="w3-opacity">Architect</p>
+              <p>Our triumphant 7th grader whose fav drink is Olipop Soda and fav color is black and purple</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="w3-row-padding w3-grayscale headshot-container">
+        <div class="w3-col m3 w3-margin-bottom">
+          <div class="w3-light-grey">
+            <img lass="headshot" src="Arjun.png" alt="Arjun" style="width:100%">
+            <div class="w3-container">
+              <h3>Arjun Mitra</h3>
+              <p class="w3-opacity">Board Member</p>
+            </div>
+          </div>
+        </div>
+        <div class="w3-col m3 w3-margin-bottom">
+          <div class="w3-pink">
+            <img class="headshot" src="Samantha B.png" alt="Samantha" style="width:100%">
+            <div class="w3-container">
+              <h3>Samantha Broxton</h3>
+              <p class="w3-opacity">Board Member</p>
+            </div>
+          </div>
+        </div>
+        <div class="w3-col m3 w3-margin-bottom">
+          <div class="w3-purple">
+            <img class="headshot" src="Sabrina.png" alt="Sammie" style="width:100%">
+            <div class="w3-container">
+              <h3>Sabrina Netters</h3>
+              <p class="w3-opacity">Board Member</p>
+            </div>
+          </div>
+        </div>
+        <div class="w3-col m3 w3-margin-bottom">
+          <div class="w3-black">
+            <img class="headshot" src="WKB-headshot.png" alt="William" style="width:100%">
+            <div class="w3-container">
+              <h3>William Broxton</h3>
+              <p class="w3-opacity">Board Member</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Where our IBM apis are utilized -->
+    <!-- <div class="w3-container" id="api" style="margin-top:75px">
+    <h1 class="w3-xxxlarge" style="color:#1F8555"><b>Alerts Translation</b></h1>
+    <hr style="width:50px;border:5px solid #FCEFB4" class="w3-round">
+    <p>Use this function to breakdown language barriers</p>
+  </div>
+  <div class="w3-row-padding">
+    <div class="w3-half w3-margin-bottom">
+      <div class="w3-section"> -->
+    <!-- <label>Input Message</label> -->
+    <!-- <textarea rows="6" cols="50">Insert text here</textarea>
+				<button class="w3-button w3-green w3-padding-large w3-hover-black" onclick={bappy}>Submit</button>
+      </div>
+    </div> -->
+
+    <!-- <div class="w3-half w3-margin-bottom" >
+      <div class="w3-section"> -->
+    <!-- <label>Output Message</label> -->
+    <!-- <button style="font-size:24px">Listen <i class="fa fa-volume-up"></i></button> -->
+    <!-- <button class="w3-button w3-red w3-padding-large w3-hover-black">Send</button> -->
+    <!-- </div>
+    </div>
+  </div> -->
+
+    <!-- Contact -->
+    <div class="w3-container reveal" id="contact" style="margin-top:75px">
+      <h1 class="w3-xxxlarge" style="color:#1F8555"><b>Contact.</b></h1>
+      <hr style="width:50px;border:5px solid #FCEFB4" class="w3-round">
+      <p>Comments, Complaints, or Suggestions? Enter your information here to send us your feedback.</p>
+      <form action="/action_page.php" target="_blank">
+        <div class="w3-section">
+          <label>Name</label>
+          <input class="w3-input w3-border" type="text" name="Name" required>
+        </div>
+        <div class="w3-section">
+          <label>Email</label>
+          <input class="w3-input w3-border" type="text" name="Email" required>
+        </div>
+        <div class="w3-section">
+          <label>Message</label>
+          <input class="w3-input w3-border" type="text" name="Message" required>
+        </div>
+        <button type="submit" class="w3-button w3-block w3-padding-large w3-margin-bottom"
+          style="background-color:#1F8555;color:#FCEFB4">Send Message</button>
+      </form>
+    </div>
+
+    <!-- End page content -->
+  </div>
+
+  <!-- W3.CSS Container -->
+  <div class="w3-light-grey w3-container w3-padding-32" style="margin-top:75px;padding-right:58px">
+    <p class="w3-right">Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank"
+        class="w3-hover-opacity">w3.css</a></p>
+  </div>
+
+  <script>
+    // Script to open and close sidebar
+    function w3_open() {
+      document.getElementById("mySidebar").style.display = "block";
+      document.getElementById("myOverlay").style.display = "block";
+    }
+
+    function w3_close() {
+      document.getElementById("mySidebar").style.display = "none";
+      document.getElementById("myOverlay").style.display = "none";
+    }
+
+    // Modal Image Gallery
+    function onClick(element) {
+      document.getElementById("img01").src = element.src;
+      document.getElementById("modal01").style.display = "block";
+      var captionText = document.getElementById("caption");
+      captionText.innerHTML = element.alt;
+    }
+
+    //chatbot
+    window.watsonAssistantChatOptions = {
+      integrationID: "e69d1a1b-ca71-4738-9148-7a0218f11307", // The ID of this integration.
+      region: "us-south", // The region your integration is hosted in.
+      serviceInstanceID: "d728c4e1-b687-485d-85dd-3cb6219fecb1", // The ID of your service instance.
+      onLoad: function (instance) {
+        instance.render();
+      }
+    };
+    setTimeout(function () {
+      const t = document.createElement('script');
+      t.src = "https://web-chat.global.assistant.watson.appdomain.cloud/versions/" + (window
+        .watsonAssistantChatOptions.clientVersion || 'latest') + "/WatsonAssistantChatEntry.js";
+      document.head.appendChild(t);
+    });
+
+    function reveal() {
+      var reveals = document.querySelectorAll(".reveal");
+
+      for (var i = 0; i < reveals.length; i++) {
+        var windowHeight = window.innerHeight;
+        var elementTop = reveals[i].getBoundingClientRect().top;
+        var elementVisible = 150;
+
+        if (elementTop < windowHeight - elementVisible) {
+          reveals[i].classList.add("active");
+        } else {
+          reveals[i].classList.remove("active");
+        }
+      }
+    }
+
+    window.addEventListener("scroll", reveal);
+  </script>
+
+</body>
+
+</html>

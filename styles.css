@@ -1,0 +1,61 @@
+body,
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  font-size: 16px;
+}
+
+.w3-half img {
+  margin-bottom: -6px;
+  margin-top: 16px;
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+.w3-half img:hover {
+  opacity: 1;
+}
+
+.w3-sidebar {
+  background-image: url("plantBackground.jpg");
+}
+
+.Showcase {
+  color: #1f8555;
+  font-size: w3-xxxlarge;
+}
+
+.w3-container w3-top w3-hide-large w3-xlarge w3-padding {
+  background-image: url("plantBackground.jpg");
+}
+
+.w3-container > h3 {
+  font-size: 1.1em;
+}
+
+.w3-container {
+  width: 100%; /*whatever size you want your container*/
+  align-items: stretch; /*stretches all cards same height*/
+}
+
+.headshot {
+  width: 20vw;
+  height: min-content;
+}
+.reveal {
+  position: relative;
+  transform: translateY(150px);
+  opacity: 0;
+  transition: 1s all ease;
+}
+
+.reveal.active {
+  transform: translateY(0);
+  opacity: 1;
+}
