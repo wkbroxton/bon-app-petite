@@ -14,17 +14,6 @@
 <body>
 
 
-  <!-- Api key for watson assistant -->
-  <!-- {
-		"apikey": "UPKOhd-MYZmySsYPa6cGMGBi0-F4-P2jgyw3xwVpxxMw",
-		"iam_apikey_description": "Auto-generated for key crn:v1:bluemix:public:conversation:us-south:a/ce8bd6a803cd4d80a6bf92c80dcdbe38:d728c4e1-b687-485d-85dd-3cb6219fecb1:resource-key:343c7466-e8f8-4425-8beb-9618c28c48d0",
-		"iam_apikey_name": "Auto-generated service credentials",
-		"iam_role_crn": "crn:v1:bluemix:public:iam::::serviceRole:Manager",
-		"iam_serviceid_crn": "crn:v1:bluemix:public:iam-identity::a/ce8bd6a803cd4d80a6bf92c80dcdbe38::serviceid:ServiceId-34b4b75d-fea5-4c75-8e31-a6929e726947",
-		"url": "https://api.us-south.assistant.watson.cloud.ibm.com/instances/d728c4e1-b687-485d-85dd-3cb6219fecb1"
-	} -->
-
-
   <!-- Sidebar/menu -->
   <nav class="w3-sidebar w3-black w3-collapse w3-top w3-large w3-padding"
     style="z-index:3;width:300px;font-weight:bold;" id="mySidebar"><br>
@@ -37,7 +26,7 @@
       <a href="#" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Home</a>
       <a href="#services" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">What We Do</a>
       <a href="#team" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Meet Team Tech</a>
-      <!-- <a href="#api" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Api</a> -->
+      <a href="#restaurant" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Restaurant</a>
       <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Contact</a>
     </div>
   </nav>
@@ -190,29 +179,40 @@
       </div>
     </div>
 
-    <!-- Where our IBM apis are utilized -->
-    <!-- <div class="w3-container" id="api" style="margin-top:75px">
-    <h1 class="w3-xxxlarge" style="color:#1F8555"><b>Alerts Translation</b></h1>
-    <hr style="width:50px;border:5px solid #FCEFB4" class="w3-round">
-    <p>Use this function to breakdown language barriers</p>
-  </div>
-  <div class="w3-row-padding">
-    <div class="w3-half w3-margin-bottom">
-      <div class="w3-section"> -->
-    <!-- <label>Input Message</label> -->
-    <!-- <textarea rows="6" cols="50">Insert text here</textarea>
-				<button class="w3-button w3-green w3-padding-large w3-hover-black" onclick={bappy}>Submit</button>
-      </div>
-    </div> -->
-
-    <!-- <div class="w3-half w3-margin-bottom" >
-      <div class="w3-section"> -->
-    <!-- <label>Output Message</label> -->
-    <!-- <button style="font-size:24px">Listen <i class="fa fa-volume-up"></i></button> -->
-    <!-- <button class="w3-button w3-red w3-padding-large w3-hover-black">Send</button> -->
-    <!-- </div>
+    <div class="w3-container reveal" id="restaurant">
+      <h1 class="w3-xxxlarge" style="color:#1F8555"><b>Restaurants Near You</b></h1>
+      <hr style="width:50px;border:5px solid #FCEFB4" class="w3-round">
+      <table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white">
+        <th><i>Restaurant</i></th>
+        <th><i>Store Hours</i></th>
+        <tr>
+          <td>Hollywood Restaurant</td>
+          <td>9am -5pm</td>
+        </tr>
+        <tr>
+          <td>SOHO Cafe</td>
+          <td>6am-2pm</td>
+        </tr>
+        <tr>
+          <td>Times Square Bakery</td>
+          <td>10am-11pm</td>
+        </tr>
+        <tr>
+          <td>Willamsburg Bakery</td>
+          <td>8am-5pm</td>
+        </tr>
+        <tr>
+          <td>Tribeca Eatery</td>
+          <td>12pm-12am</td>
+        </tr>
+        <tr>
+          <td>French Cafe</td>
+          <td>9am-5pm</td>
+        </tr>
+      </table><br>
+      <button class="w3-button w3-dark-grey">More Restaurants <i class="fa fa-arrow-right"></i></button>
     </div>
-  </div> -->
+
 
     <!-- Contact -->
     <div class="w3-container reveal" id="contact" style="margin-top:75px">
